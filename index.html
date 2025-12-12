@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CV HRJ Frams - Link Hub</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+    body {
+        margin: 0;
+        font-family: 'Poppins', sans-serif;
+        background: url('/img/background.jpg') no-repeat center center/cover;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        color: white;
+        opacity: 0;
+        animation: fadeInBg 1s ease forwards;
+    }
+
+    @keyframes fadeInBg { to { opacity: 1; } }
+
+    /* CARD COMPACT */
+    .profile-card {
+        width: 100%;
+        max-width: 300px;   /* DIPERKECIL */
+        padding: 18px;      /* DIPERKECIL */
+        border-radius: 18px;
+        text-align: center;
+        backdrop-filter: blur(10px);
+        border: 1px solid rgba(255,255,255,0.25);
+        opacity: 0;
+        transform: translateY(25px);
+        animation: fadeUp 0.9s ease forwards;
+        animation-delay: 0.2s;
+    }
+
+    @keyframes fadeUp {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Light Mode */
+    body.light-mode .profile-card {
+        background: rgba(255,255,255,0.33);
+        color: black;
+    }
+
+    /* Dark Mode */
+    body.dark-mode .profile-card {
+        background: rgba(20,20,20,0.33);
+        color: white;
+    }
+
+    /* LOGO DIPERKECIL */
+    .profile-logo {
+        width: 85px;
+        height: 85px;
+        border-radius: 50%;
+        object-fit: cover;
+        border: 3px solid rgba(255,255,255,0.75);
+
+        opacity: 0;
+        transform: scale(0.6);
+        animation: logoPop 0.75s ease forwards;
+        animation-delay: 0.45s;
+    }
+
+    @keyframes logoPop {
+        50% { transform: scale(1.07); }
+        100% { transform: scale(1); opacity: 1; }
+    }
+
+    /* TEKS DIPERKECIL */
+    .profile-name {
+        font-size: 1.1rem;
+        font-weight: 600;
+        margin-top: 10px;
+    }
+
+    .profile-desc {
+        font-size: 0.8rem;
+        margin-bottom: 15px;
+        opacity: 0.9;
+    }
+
+    /* BUTTON MINI */
+    .social-button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        width: 100%;
+        padding: 9px 0;           /* DIPERKECIL */
+        margin-bottom: 10px;
+        border-radius: 12px;
+        font-size: 0.85rem;       /* DIPERKECIL */
+        font-weight: 600;
+        text-decoration: none;
+        color: white;
+        transition: 0.25s ease;
+        backdrop-filter: blur(6px);
+
+        opacity: 0;
+        transform: translateY(15px);
+        animation: btnAppear 0.6s ease forwards;
+    }
+
+    .social-button:nth-child(4) { animation-delay: 0.7s; }
+    .social-button:nth-child(5) { animation-delay: 0.85s; }
+    .social-button:nth-child(6) { animation-delay: 1s; }
+    .social-button:nth-child(7) { animation-delay: 1.15s; }
+    .social-button:nth-child(8) { animation-delay: 1.3s; }
+
+    @keyframes btnAppear {
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .social-button:hover { transform: translateY(-2px); }
+    .social-button:active { transform: scale(0.94); }
+
+    /* Light Mode tombol */
+    body.light-mode .social-button { background: rgba(0,0,0,0.45); }
+
+    /* Dark Mode tombol */
+    body.dark-mode .social-button { background: rgba(255,255,255,0.18); }
+</style>
+</head>
+
+<body>
+
+<div class="profile-card">
+    <img src="/img/logo.png" class="profile-logo" alt="Logo">
+
+    <h2 class="profile-name">CV. HRJ Frams</h2>
+    <p class="profile-desc">Jual beli domba berkualitas</p>
+
+    <a href="https://wa.me/6281225854816" class="social-button"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+    <a href="https://www.facebook.com/share/1GRrQPGpHc/" class="social-button"><i class="fab fa-facebook"></i> Facebook</a>
+    <a href="mailto:hrjframs@gmail.com" class="social-button"><i class="fa fa-envelope"></i> Email</a>
+    <a href="http://www.tiktok.com/@cv.hrj.frams" class="social-button"><i class="fab fa-tiktok"></i> TikTok</a>
+    <a href="https://maps.google.com/maps?q=-7.389883995056152%2C108.14157104492188&z=17&hl=en" class="social-button">
+        <i class="fa fa-location-dot"></i> Lokasi
+    </a>
+</div>
+
+<script>
+    // Auto detect light/dark mode
+    const mode = window.matchMedia("(prefers-color-scheme: dark)").matches 
+        ? "dark-mode"
+        : "light-mode";
+    document.body.classList.add(mode);
+</script>
+
+</body>
+</html>
